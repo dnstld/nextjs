@@ -7,11 +7,11 @@ export default async function Page() {
   return (
     <ul>
       {posts.map((post) => (
-        <Link key={post.id} href={`/blog/${post.id}`}>
-          <li className="p-4">
-            <h2 className="font-bold">{post.title}</h2>
-          </li>
-        </Link>
+        <li key={post.id} className="p-4">
+          <Link href={`/blog/${post.id}`}>
+            <h2 className="font-bold hover:underline">{post.title}</h2>
+          </Link>
+        </li>
       ))}
     </ul>
   );
