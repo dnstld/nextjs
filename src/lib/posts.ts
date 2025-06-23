@@ -3,7 +3,7 @@ import { Post } from "@/types/post";
 export async function getPosts(): Promise<Post[]> {
   try {
     const res = await fetch('https://dummyjson.com/posts', {
-      cache: 'no-store'
+      cache: 'force-cache',
     })
 
     if (!res.ok) {
