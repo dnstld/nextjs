@@ -2,7 +2,9 @@
 export async function getRandom() {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/random`, {
-      cache: 'force-cache',
+      next: {
+        revalidate: 60,
+      },
     })
 
     if (!res.ok) {
