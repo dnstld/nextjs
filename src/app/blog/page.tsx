@@ -1,3 +1,4 @@
+import { getOtherRandom } from '@/lib/otherRandom';
 import { getPosts } from '@/lib/posts';
 import { getRandom } from '@/lib/random';
 import { RevalidateButton } from '@/ui/RevalidateButton';
@@ -6,6 +7,7 @@ import Link from 'next/link';
 export default async function Page() {
   const posts = await getPosts();
   const random = await getRandom();
+  const otherRandom = await getOtherRandom();
 
   return (
     <section className="max-w-4xl mx-auto px-4 py-8">
@@ -16,8 +18,8 @@ export default async function Page() {
       </div>
       <div>
         <h1 className="text-3xl font-bold mb-4">revalidateTag</h1>
-        <h1>{random.message}</h1>
-        <span>{random.timestamp}</span>
+        <h1>{otherRandom.message}</h1>
+        <span>{otherRandom.timestamp}</span>
 
         <RevalidateButton />
       </div>
