@@ -1,8 +1,10 @@
-import { Post } from "@/types/post"
+import { Post } from "@/types/post";
 
 export async function getPosts(): Promise<Post[]> {
   try {
-    const res = await fetch('https://dummyjson.com/posts')
+    const res = await fetch('https://dummyjson.com/posts', {
+      cache: 'force-cache',
+    })
 
     if (!res.ok) {
       throw new Error(`Failed to fetch posts: ${res.status}`)
